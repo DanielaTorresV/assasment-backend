@@ -1,13 +1,13 @@
 const mongoose = require("mongoose");
 
 function connect() {
-  const uri = process.env.NOTHIN_HERE;
+  const url = process.env.NOTHING_HERE;
   const opts = {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   };
 
-  mongoose.connect(uri, opts);
+  mongoose.connect(url, opts);
 
   mongoose.connection.once("open", () => {
     console.log("Connection established successfully");
