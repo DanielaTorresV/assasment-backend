@@ -1,20 +1,37 @@
 const mongoose = require("mongoose");
 
-function connect() {
-  const url = process.env.NOTHING_HERE;
+let connection;
+
+async function connect() {
+  if (connection) return;
+
+  const url = process.env.NOTHING_HERE || "mongodb://localhost:27017/favs";
   const opts = {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   };
 
-  mongoose.connect(url, opts);
+  connection = mongoose.connection;
 
-  mongoose.connection.once("open", () => {
-    console.log("Connection established successfully with DB");
-  });
-  mongoose.connection.on("error", (err) => {
-    console.log("Something went wrong", err);
-  });
+  connection.once("open", () =>
+    console.log("Connection established successfully")
+  );
+  connection.on("disconnected", () => console.log("Succesfully disconnected"));
+  connection.on("error", (err) => console.log("Something went wrong", err));
+
+  await mongoose.connect(url, opts);
 }
 
-module.exports = { connect };
+async function disconnected() {
+  if (!connection) return;
+
+  await mongoose.disconnect();
+}
+
+async function cleanup() {
+  for (const collection in connection.collections) {
+    await connection.collections[collection].deleteMany({});
+  }
+}
+
+module.exports = { connect, disconnected, cleanup };
