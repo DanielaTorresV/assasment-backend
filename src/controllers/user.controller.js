@@ -57,4 +57,12 @@ module.exports = {
       res.status(400).json({ message: `User could not login: error: ${err}` });
     }
   },
+  async list(req, res) {
+    try {
+      const users = await User.find().populate("listsFavs", "name");
+      res.status(200).json({ message: "Users found", data: users });
+    } catch (err) {
+      res.status(404).json({ message: "Users not found" });
+    }
+  },
 };

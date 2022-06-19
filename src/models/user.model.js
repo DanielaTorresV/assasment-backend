@@ -21,7 +21,7 @@ const userSchema = new Schema(
       required: [true, "Password is required"],
       match: [passwordRegex, "Invalid password"],
     },
-    listFavs: {
+    listsFavs: {
       type: [{ type: Schema.Types.ObjectId, ref: "ListFavs" }],
     },
   },

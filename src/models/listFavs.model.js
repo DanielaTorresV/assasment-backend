@@ -5,6 +5,10 @@ const listFavsSchema = new Schema(
     name: {
       type: String,
       required: [true, "ListFavs name is required"],
+      enum: {
+        values: ["Clothes", "Music", "Pets", "Food"],
+        message: "It is a invalid name for the list",
+      },
     },
     user: {
       type: Schema.Types.ObjectId,

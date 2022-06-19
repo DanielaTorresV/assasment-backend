@@ -5,7 +5,7 @@ let connection;
 async function connect() {
   if (connection) return;
 
-  const url = process.env.NOTHING_HERE || "mongodb://localhost:27017/favs";
+  const url = process.env.NOTHING_HERE_ATLAS;
   const opts = {
     useNewUrlParser: true,
     useUnifiedTopology: true,
