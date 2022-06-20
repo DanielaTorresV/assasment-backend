@@ -14,7 +14,7 @@ const favSchema = new Schema(
       type: String,
       required: [true, "Fav link is required"],
     },
-    list: {
+    listFavs: {
       type: Schema.Types.ObjectId,
       ref: "ListFavs",
       required: true,
