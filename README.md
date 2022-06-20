@@ -10,7 +10,7 @@ To this project we need to install the next dependencies:
 - Nodejs, bcryptjs, cors, dotenv, express, jsonwebtoken, mongoose and morgan.
 - Development dependencie: Nodemon and cross-env
 
-This project has a few of test to prove its operation, this tanks to jest.
+This project has a few of test to prove its operation, this tanks to jest, testing in 76.5%.
 
 Besides you need the tool Postamn to test the requests.
 

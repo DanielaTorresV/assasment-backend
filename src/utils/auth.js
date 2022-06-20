@@ -11,7 +11,7 @@ exports.auth = (req, res, next) => {
     const [_, token] = authorization.split(" ");
 
     if (!token) {
-      throw new Error("Session expired !");
+      throw new Error("Session expired");
     }
 
     const { id } = jwt.verify(token, process.env.SECRET);
