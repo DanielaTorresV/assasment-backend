@@ -65,4 +65,15 @@ module.exports = {
       res.status(404).json({ message: "Users not found" });
     }
   },
+  async destroy(req, res) {
+    try {
+      const userId = req.user;
+      const user = await User.findByIdAndDelete(userId);
+      res.status(200).json({ message: "User destroyed", data: user });
+    } catch (err) {
+      res
+        .status(400)
+        .json({ message: "User could not be destroyed", data: err });
+    }
+  },
 };
