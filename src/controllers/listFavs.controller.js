@@ -5,10 +5,9 @@ module.exports = {
   async list(req, res) {
     try {
       const userId = req.user;
-      const listFavs = await ListFavs.find({ user: userId }).populate(
-        "user",
-        "email"
-      );
+      const listFavs = await ListFavs.find({ user: userId })
+        .populate("user", "email")
+        .populate("favs", "title");
       res.status(200).json({ message: "Lists Favs found", data: listFavs });
     } catch (err) {
       res.status(404).json({ message: "Lists Favs not found" });

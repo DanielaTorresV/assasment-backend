@@ -19,8 +19,8 @@ module.exports = {
     try {
       const { favId } = req.params;
       const fav = await Fav.findById(favId)
-        .populate("user", "email")
-        .populate("listFavs", "name");
+        .populate("listFavs", "name")
+        .populate("user", "email");
       res.status(200).json({ message: "Fav found", data: fav });
     } catch (err) {
       res.status(404).json({ message: "Fav not found" });
