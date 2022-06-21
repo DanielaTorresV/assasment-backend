@@ -14,6 +14,8 @@ This project has a few of test to prove its operation, this tanks to jest, testi
 
 Besides you need the tool Postamn to test the requests.
 
+To install all modules you need put in the terminal: npm install.
+
 ## How to Run and to test the API
 
 1. You need to register on the API and then you can use it, to the register you give a valid email besides a
