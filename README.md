@@ -1,7 +1,7 @@
 # Assasment-backend
 
 This is an initial version of FAVS API.
-In this documento you find the correctly way to use the API.
+In this document you find the correctly way to use the API.
 
 ## External Dependencies
 
