@@ -1,6 +1,5 @@
 const { Schema, model, models } = require("mongoose");
 const emailRegex = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
-const passwordRegex = new RegExp("(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}");
 
 const userSchema = new Schema(
   {
@@ -19,7 +18,6 @@ const userSchema = new Schema(
     password: {
       type: String,
       required: [true, "Password is required"],
-      match: [passwordRegex, "Invalid password"],
     },
     listsFavs: {
       type: [{ type: Schema.Types.ObjectId, ref: "ListFavs" }],

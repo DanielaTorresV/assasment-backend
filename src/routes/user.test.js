@@ -80,16 +80,6 @@ describe("user", () => {
     expect(res.statusCode).toBe(400);
     expect(res.body.message).toMatch(/User or password not valid/i);
   });
-
-  it("Should list users correctly", async () => {
-    const user = { email: "test@test.com", password: "Abcd12345" };
-    await clonServer(app).post("/users/register").send(user);
-    await clonServer(app).post("/users/login").send(user);
-    const res = await clonServer(app).get("/users");
-
-    expect(res.statusCode).toBe(200);
-  });
-
   it("Should delete an user correctly", async () => {
     const user = { email: "test@test.com", password: "Abcd12345" };
     await clonServer(app).post("/users/register").send(user);

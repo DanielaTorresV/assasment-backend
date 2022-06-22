@@ -23,15 +23,34 @@ To install all modules you need put in the terminal: npm install.
    8 characters. Don´t forget this two parameters you need the same email and password when you are going to use the
    API again because it will be a Login.
 
-2. When you are logged, you have a token (AUTHORIZATION) with this you can use the next requests.
+Registro: http://localhost:8080/users/register
+Ejm: {
+"email" : "johndoe@gmail.com",
+"password" : "Abcd12345"
+}
+
+Login: http://localhost:8080/users/login
+Ejm: {
+"email" : "johndoe@gmail.com",
+"password" : "Abcd12345"
+}
+
+2. When you are logged, you have a token (AUTHORIZATION: Bearer token) with this you can use the next requests.
 
 3. Following you see the requests that you can do:
-   - To find all users in the API. (GET: http://localhost:8080/users/)
-   - To delete and user (DELETE: http://localhost:8080/users/)
+   - To delete and user (DELETE: http://localhost:8080/users/) - With Authorization.
    - To create your list of favorites (POST: http://localhost:8080/listsFavs) - here you have 4 options to the lists "Clothes", "Music", "Pets", "Food".
-   - To find lists of favorites for user (GET: http://localhost:8080/listsFavs)
-   - To find one list of favorites for unique id (GET: http://localhost:8080/listsFavs/idListFavs)
-   - To delete one list of favorites for unique id (DELETE: http://localhost:8080/listsFavs/idListFavs)
+     Ejm: {
+     "name" : "Clothes"
+     } With Authorization.
+   - To find lists of favorites for user (GET: http://localhost:8080/listsFavs) With Authorization.
+   - To find one list of favorites for unique id (GET: http://localhost:8080/listsFavs/:idListFavs) With Authorization.
+   - To delete one list of favorites for unique id (DELETE: http://localhost:8080/listsFavs/:idListFavs) With Authorization.
    - To create your favorite with an unique id to the list of favorites (POST: http://localhost:8080/favs/idListFavs)
-   - To find one favorite for unique id (GET: http://localhost:8080/favs/idFav)
-   - To delete one favorite for unique id (DELETE: http://localhost:8080/favs/idFav)
+     Ejm: {
+     "title" : "Shorts",
+     "description" : "I love this to the summer",
+     "link" : "https://www.lavanguardia.com/comprar/20200823/482955090307/shorts-vaqueros-tendencia-verano-comprar.html"
+     } With Authorization.
+   - To find one favorite for unique id (GET: http://localhost:8080/favs/:idFav) With Authorization.
+   - To delete one favorite for unique id (DELETE: http://localhost:8080/favs/:idFav) With Authorization.

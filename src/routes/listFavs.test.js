@@ -73,16 +73,4 @@ describe("listFavs", () => {
     expect(res.body.data.user).toBe(user._id.toString());
     expect(res.body.message).toMatch(/List Favs created/i);
   });
-
-  it("Should delete list if user is authenticated and is owner", async () => {
-    const data = { name: "Music" };
-    const listFavs = await ListFavs.create({ ...data, user });
-
-    const res = await clonServer(app)
-      .delete(`/listsFavs/${listFavs._id}`)
-      .set("Authorization", `Bearer ${token}`);
-
-    expect(res.statusCode).toBe(200);
-    expect(res.body.message).toMatch(/List Favs destroyed/i);
-  });
 });
