@@ -38,6 +38,7 @@ Ejm: {
 2. When you are logged, you have a token (AUTHORIZATION: Bearer token) with this you can use the next requests.
 
 3. Following you see the requests that you can do:
+
    - To delete and user (DELETE: http://localhost:8080/users/) - With Authorization.
    - To create your list of favorites (POST: http://localhost:8080/listsFavs) - here you have 4 options to the lists "Clothes", "Music", "Pets", "Food".
      Ejm: {
@@ -54,3 +55,5 @@ Ejm: {
      } With Authorization.
    - To find one favorite for unique id (GET: http://localhost:8080/favs/:idFav) With Authorization.
    - To delete one favorite for unique id (DELETE: http://localhost:8080/favs/:idFav) With Authorization.
+
+   4. Finalmente se hizo despliegue en heroku para las pruebas: https://asessback-daniela.herokuapp.com/
