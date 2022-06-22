@@ -1,12 +1,15 @@
 const User = require("../models/user.model");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const passwordRegex = new RegExp("(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}");
+const passwordRegex = /(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}/;
 
 module.exports = {
   async register(req, res) {
     try {
       const { email, password } = req.body;
+      if (!passwordRegex.test(password)) {
+        return res.status(400).json({ data: "Contraseña poco segura" });
+      }
       const encPassword = await bcrypt.hash(
         password,
         Number(process.env.NUMBER)
