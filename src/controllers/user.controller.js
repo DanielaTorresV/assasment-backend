@@ -1,6 +1,7 @@
 const User = require("../models/user.model");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const passwordRegex = new RegExp("(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}");
 
 module.exports = {
   async register(req, res) {
@@ -57,14 +58,7 @@ module.exports = {
       res.status(400).json({ message: `User could not login: error: ${err}` });
     }
   },
-  async list(req, res) {
-    try {
-      const users = await User.find().populate("listsFavs", "name");
-      res.status(200).json({ message: "Users found", data: users });
-    } catch (err) {
-      res.status(404).json({ message: "Users not found" });
-    }
-  },
+
   async destroy(req, res) {
     try {
       const userId = req.user;

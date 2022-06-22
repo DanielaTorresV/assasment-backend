@@ -1,4 +1,5 @@
 const jwt = require("jsonwebtoken");
+const User = require("../models/user.model");
 
 exports.auth = (req, res, next) => {
   try {
@@ -17,6 +18,10 @@ exports.auth = (req, res, next) => {
     const { id } = jwt.verify(token, process.env.SECRET);
 
     req.user = id;
+
+    if (!User.findById(id)) {
+      throw new Error("User does not exist");
+    }
 
     next();
   } catch (err) {
