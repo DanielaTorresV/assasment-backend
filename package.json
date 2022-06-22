@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/server.js",
   "scripts": {
-    "test": "cross-env NOTHING_HERE=mongodb://localhost:27017/favs-test jest --detectOpenHandles",
+    "test": "cross-env NOTHING_HERE_ATLAS=mongodb://localhost:27017/favs-test jest --detectOpenHandles",
     "test:coverage": "npm test -- --coverage",
     "start": "node src/server.js",
     "dev": "nodemon src/server.js"

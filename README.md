@@ -1,7 +1,7 @@
 # Assasment-backend
 
 This is an initial version of FAVS API.
-In this documento you find the correctly way to use the API.
+In this document you find the correctly way to use the API.
 
 ## External Dependencies
 
@@ -13,6 +13,8 @@ To this project we need to install the next dependencies:
 This project has a few of test to prove its operation, this tanks to jest, testing in 76.5%.
 
 Besides you need the tool Postamn to test the requests.
+
+To install all modules you need put in the terminal: npm install.
 
 ## How to Run and to test the API
 
